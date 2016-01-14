@@ -390,7 +390,9 @@ public class HashTrieMapTests extends TestsUtility {
 
         STUDENT.delete(a("f"));
 
-        if (!equals(node(), getField(STUDENT, "root"))) {
+        boolean rootIsSingleNode = equals(node(), getField(STUDENT, "root"));
+        boolean rootIsNull = equals(null, getField(STUDENT, "root"));
+        if (!(rootIsSingleNode || rootIsNull)) {
             return 0;
         }
 
