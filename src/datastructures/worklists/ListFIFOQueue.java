@@ -1,5 +1,7 @@
 package datastructures.worklists;
 
+import java.util.NoSuchElementException;
+
 import cse332.exceptions.NotYetImplementedException;
 import cse332.interfaces.worklists.FIFOWorkList;
 
@@ -23,9 +25,11 @@ public class ListFIFOQueue<E> extends FIFOWorkList<E> {
     	}
     }
     public Node head, tail;
+    public int size;
     public ListFIFOQueue() {
         this.head = null;
         this.tail = null;
+        size = 0;
     }
 
     @Override
@@ -39,25 +43,60 @@ public class ListFIFOQueue<E> extends FIFOWorkList<E> {
         	tail.setNext(newNode);
         	tail = newNode;
         }
+        this.size++;
     }
-
+    /**
+     * Returns a view to the next element of the worklist.
+     *
+     * @precondition hasWork() is true
+     * @postcondition return(peek()) is return(next())
+     * @postcondition the structure of this worklist remains unchanged.
+     * @throws NoSuchElementException
+     *             if hasWork() is false
+     * @return the next element in this worklist
+     */
     @Override
     public E peek() {
-    	
+    	if (this.size() == 0) {
+			throw new NoSuchElementException();
+		}
+    	return (E) head.getData();
     }
-
+    /**
+     * Returns and removes the next element of the worklist
+     *
+     * @precondition hasWork() is true
+     * @postcondition return(next()) ++ after(next()) == before(next())
+     * @postcondition after(size()) + 1 == before(size())
+     * @throws NoSuchElementException
+     *             if hasWork() is false
+     * @return the next element in this worklist
+     */
     @Override
     public E next() {
-        throw new NotYetImplementedException();
+    	if (this.size() == 0) {
+			throw new NoSuchElementException();
+		}
+    	E data = (E) head.getData();
+    	if (this.size() == 1) {
+			head = null;
+			tail = null;
+		} else {
+			head = head.next;
+		}
+    	this.size--;
+    	return data;
     }
 
     @Override
     public int size() {
-        throw new NotYetImplementedException();
+        return this.size;
     }
 
     @Override
     public void clear() {
-        throw new NotYetImplementedException();
+    	this.head = null;
+        this.tail = null;
+        size = 0;
     }
 }
