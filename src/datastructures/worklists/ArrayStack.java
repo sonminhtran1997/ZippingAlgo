@@ -1,5 +1,7 @@
 package datastructures.worklists;
 
+import java.util.NoSuchElementException;
+
 import cse332.exceptions.NotYetImplementedException;
 import cse332.interfaces.worklists.LIFOWorkList;
 
@@ -8,33 +10,65 @@ import cse332.interfaces.worklists.LIFOWorkList;
  * for method specifications.
  */
 public class ArrayStack<E> extends LIFOWorkList<E> {
-
+	public E[] stack;
+	public int occupied;
+	public int capacity;
+	
     public ArrayStack() {
-        throw new NotYetImplementedException();
+    	this.occupied = 0;
+    	this.capacity = 10;
+        this.stack = (E[])new Object[this.capacity];
+        
     }
-
+    /**
+     * Adds work to the worklist. This method should conform to any additional
+     * contracts that the particular type of worklist has.
+     *
+     * @param work
+     *            the work to add to the worklist
+     */
     @Override
     public void add(E work) {
-        throw new NotYetImplementedException();
+    	if (this.occupied == this.capacity - 1) {
+    		this.capacity *= 2;
+			E[] temp = (E[]) new Object[this.capacity];
+			for (int i = 0; i < this.occupied; i++) {
+				temp[i] = stack[i];
+			}
+			stack = temp;
+		}
+        stack[occupied] = work;
+        this.occupied++;
     }
 
     @Override
     public E peek() {
-        throw new NotYetImplementedException();
+    	if (this.occupied == 0) {
+			throw new NoSuchElementException();
+		}
+    	return (E) stack[occupied-1];
     }
 
     @Override
     public E next() {
-        throw new NotYetImplementedException();
+    	if (this.occupied == 0) {
+			throw new NoSuchElementException();
+		}
+        E temp = this.stack[occupied-1];
+        this.stack[this.occupied-1] = null;
+        this.occupied--;
+        return temp;
     }
 
     @Override
     public int size() {
-        throw new NotYetImplementedException();
+        return this.occupied;
     }
 
     @Override
     public void clear() {
-        throw new NotYetImplementedException();
+    	this.occupied = 0;
+    	this.capacity = 10;
+        this.stack = (E[])new Object[this.capacity];
     }
 }
