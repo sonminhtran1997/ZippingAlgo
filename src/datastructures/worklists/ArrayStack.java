@@ -46,7 +46,7 @@ public class ArrayStack<E> extends LIFOWorkList<E> {
     	if (this.occupied == 0) {
 			throw new NoSuchElementException();
 		}
-    	return (E) stack[occupied-1];
+    	return stack[occupied-1];
     }
 
     @Override
