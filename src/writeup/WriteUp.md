@@ -4,7 +4,9 @@
 #### How Was Your Partnership? ####
 -   Did both partners do an equal amount of work?  If not, why not?
     If so, what did each person do? What happened?<pre>
-**TODO**: Answer this question
+**TODO**: Yes both of us do the same amount of work. I and him sit together in the lab every time to code the whole project. We do not work
+individually for the whole project. Some class Son will be the person who code and Max will sit next to Son to instruct and vice versa. 
+We basically do pair coding
 </pre><br>
 
 -----
@@ -12,11 +14,11 @@
 #### Project Enjoyment ####
 -   What was your favorite part of the project?  What was your least
     favorite part of the project?<pre>
-**TODO**: Answer this question
+**TODO**: The favorite part is we both come up with different solution, and we both learned that there are multiple ways to solve problem. Also, sometimes, on person struggled, and the other will be able to help up or figure out together. The least favorite part of the project is the debugging takes forever.
 </pre><br>
 
 -   Did you enjoy the project?  Why or why not?<pre>
-**TODO**: Answer this question
+**TODO**: We enjoy the first half of the project, because those are more straight forward, and it's directly from the class lecture. However, the second half of the class especially the delete method, we have to repeatedly check our logic to find out what is not correct. 
 </pre><br>
 
 -----

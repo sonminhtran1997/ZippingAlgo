@@ -185,7 +185,7 @@ public class HashTrieMapTests extends TestsUtility {
         STUDENT.delete(keyC);
 
         if (STUDENT.size() != 0 || !STUDENT.isEmpty()) {
-            return 0;
+            return 0; 
         }
 
         return doesNotContainAll(STUDENT, "keyboard", "keyesian", "bayesian") ? 1 : 0;
