@@ -65,7 +65,9 @@ are good for the compression algorithm, but I do not think this compression is p
     Say something about WHY you think you may have gotten the results you did.
     This single question is worth almost as much as the implementation of `ArrayStack`; so, please take it seriously.  If you spend less than 20 minutes
     on this question, there is no conceivable way that you answered this question in the way we were intending.<pre>
-**TODO**: Answer this question
+**TODO**: When we increase the buffer length, we can see the compression ratio increases rapidly. (See the excel file for more information).
+		For a higher compress ration, the payoff is the compression time is also increased. Therefore, as we increase the buffer length, the time and the ratio are both increase too.
+		For file type, as the file size increase, the compression ratio also increase, and the compression time also increases too.
 </pre><br>
 
 #### Above and Beyond ####
