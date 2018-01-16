@@ -25,7 +25,7 @@ public class Zip {
 
     
     /** Constants that define the input and output **/
-    public static final String ZIP_NAME = "test.zip";
+    public static final String ZIP_NAME = "book.zip";
     public static final String FILE_TO_COMPRESS = "book.epub";
 
     public static void main(String[] args) throws IOException {

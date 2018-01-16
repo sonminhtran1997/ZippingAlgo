@@ -70,36 +70,44 @@ public class HashTrieMap<A extends Comparable<A>, K extends BString<A>, V> exten
 
     @Override
     public V find(K key) {
-    	if (key == null) {
-			throw new IllegalArgumentException();
+//    	if (key == null) {
+//			throw new IllegalArgumentException();
+//		}
+//        Iterator it = key.iterator();
+//        HashTrieNode current = (HashTrieNode)this.root;
+//        while(it.hasNext()) {
+//        	A singleK = (A) it.next();
+//        	current = current.pointers.get(singleK);
+//			if(current ==null) {
+//				return null;
+//			}
+//        }
+    	HashTrieNode current = traverseCurrent(key);
+    	if (current == null) {
+			return null;
 		}
-        Iterator it = key.iterator();
-        HashTrieNode current = (HashTrieNode)this.root;
-        while(it.hasNext()) {
-        	A singleK = (A) it.next();
-        	current = current.pointers.get(singleK);
-			if(current ==null) {
-				return null;
-			}
-        }
         return 	current.value;
     }
 
     @Override
     public boolean findPrefix(K key) {
-        if(key == null) {
-        	throw new IllegalArgumentException();
-        }
-        Iterator it = key.iterator();
-        HashTrieNode current = (HashTrieNode)this.root;
-        while(it.hasNext()) {
-        	A singleK = (A) it.next();
-        		
-        	current = current.pointers.get(singleK);
-			if(current ==null) {
-				return false;
-			}
-        }
+//        if(key == null) {
+//        	throw new IllegalArgumentException();
+//        }
+//        Iterator it = key.iterator();
+//        HashTrieNode current = (HashTrieNode)this.root;
+//        while(it.hasNext()) {
+//        	A singleK = (A) it.next();
+//        		
+//        	current = current.pointers.get(singleK);
+//			if(current ==null) {
+//				return false;
+//			}
+//        }
+    	HashTrieNode current = traverseCurrent(key);
+    	if (current == null) {
+			return false;
+		}
         if (current.pointers.isEmpty()) {
 			if (current.value != null) {
 				return true;
@@ -107,6 +115,22 @@ public class HashTrieMap<A extends Comparable<A>, K extends BString<A>, V> exten
 			return false;
 		}
         return true;
+    }
+    
+    public HashTrieNode traverseCurrent(K key) {
+    	if(key == null) {
+        	throw new IllegalArgumentException();
+        }
+        Iterator<A> it = key.iterator();
+        HashTrieNode current = (HashTrieNode)this.root;
+        while(it.hasNext()) {
+        	A singleK = it.next();
+        	current = current.pointers.get(singleK);
+			if(current ==null) {
+				break;
+			}
+        }
+        return current;
     }
 
     @Override
