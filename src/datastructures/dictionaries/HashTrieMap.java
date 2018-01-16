@@ -1,13 +1,9 @@
 package datastructures.dictionaries;
 
-import java.security.Signature;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.NoSuchElementException;
-
-import cse332.exceptions.NotYetImplementedException;
 import cse332.interfaces.misc.BString;
 import cse332.interfaces.trie.TrieMap;
 
@@ -63,8 +59,9 @@ public class HashTrieMap<A extends Comparable<A>, K extends BString<A>, V> exten
 		V old = current.value;
 		current.value = value;
 	
-		if(old==null)
+		if(old==null) {
 			this.size++;
+		}
 		return old;
     }
 
@@ -109,10 +106,9 @@ public class HashTrieMap<A extends Comparable<A>, K extends BString<A>, V> exten
 			return false;
 		}
         if (current.pointers.isEmpty()) {
-			if (current.value != null) {
-				return true;
+			if (current.value == null) {
+				return false;
 			}
-			return false;
 		}
         return true;
     }
@@ -165,7 +161,7 @@ public class HashTrieMap<A extends Comparable<A>, K extends BString<A>, V> exten
 			}
 			if (current.pointers.size() > 0) {
 				current.value = null;
-			} else if (current == prev) {
+			} else if (current.equals(prev)) {
 				current.value = null;
 			} else {
 				prev.pointers.remove(temp);

@@ -4,7 +4,6 @@ import cse332.interfaces.worklists.PriorityWorkList;
 
 import java.util.NoSuchElementException;
 
-import cse332.exceptions.NotYetImplementedException;
 
 /**
  * See cse332/interfaces/worklists/PriorityWorkList.java
@@ -70,7 +69,6 @@ public class MinFourHeap<E extends Comparable<E>> extends PriorityWorkList<E> {
     private int percolateDown(int hole, E work) {
     	int first, second, third, fourth;
     	int target = 0;
-    	E min = data[0];
     	while (4*hole + 2 <= occupied) {
 			first = 4*hole + 1;
 			second = 4*hole + 2;
@@ -118,12 +116,5 @@ public class MinFourHeap<E extends Comparable<E>> extends PriorityWorkList<E> {
     	this.occupied = 0;
     	this.capacity = 10;
         data = (E[])new Comparable[capacity];
-    }
-    public String toString() {
-    	String result = "";
-    	for (int i = 0; i < data.length; i++) {
-			result += data[i] + " ";
-		}
-    	return result;
     }
 }

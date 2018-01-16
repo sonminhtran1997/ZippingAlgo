@@ -10,11 +10,11 @@ import cse332.interfaces.worklists.FixedSizeFIFOWorkList;
  * specifications.
  */
 public class CircularArrayFIFOQueue<E> extends FixedSizeFIFOWorkList<E> {
-	private int capacity;
-	private int size;
-	private int head;
-	private int tail;
-	private E[] queue;
+	int capacity;
+	int size;
+	int head;
+	int tail;
+	E[] queue;
 
 	public CircularArrayFIFOQueue(int capacity) {
 		super(capacity);

@@ -1,8 +1,6 @@
 package datastructures.worklists;
 
 import java.util.NoSuchElementException;
-
-import cse332.exceptions.NotYetImplementedException;
 import cse332.interfaces.worklists.FIFOWorkList;
 
 /**
@@ -10,6 +8,8 @@ import cse332.interfaces.worklists.FIFOWorkList;
  * for method specifications.
  */
 public class ListFIFOQueue<E> extends FIFOWorkList<E> {
+	public Node head, tail;
+    public int size;
     private class Node<E>{
     	public E data;
     	public Node next;
@@ -24,8 +24,6 @@ public class ListFIFOQueue<E> extends FIFOWorkList<E> {
     		this.next = next;
     	}
     }
-    public Node head, tail;
-    public int size;
     public ListFIFOQueue() {
         this.head = null;
         this.tail = null;
