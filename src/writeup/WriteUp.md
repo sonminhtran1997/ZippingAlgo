@@ -67,7 +67,7 @@ are good for the compression algorithm, but I do not think this compression is p
     on this question, there is no conceivable way that you answered this question in the way we were intending.<pre>
 **TODO**: When we increase the buffer length, we can see the compression ratio increases rapidly. (See the excel file for more information).
 		For a higher compress ration, the payoff is the compression time is also increased. Therefore, as we increase the buffer length, the time and the ratio are both increase too.
-		For file type, as the file size increase, the compression ratio also increase, and the compression time also increases too.
+		For file type, as the file size increase, the compression ratio also increase, and the compression time also increases too. Also, one thing we noticed is the html file has higher ratio, because html use "<>" to compress, while other files doesn't.
 </pre><br>
 
 #### Above and Beyond ####
