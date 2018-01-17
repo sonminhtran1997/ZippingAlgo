@@ -105,10 +105,8 @@ public class HashTrieMap<A extends Comparable<A>, K extends BString<A>, V> exten
     	if (current == null) {
 			return false;
 		}
-        if (current.pointers.isEmpty()) {
-			if (current.value == null) {
-				return false;
-			}
+        if (current.pointers.isEmpty()&&current.value == null) {
+			return false;
 		}
         return true;
     }
