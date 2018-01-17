@@ -42,11 +42,11 @@ using hashmap or treemap will always be better since we just need to pass the ke
     of the possible words (horizontal, vertical, diagonal, etc.).  In Boggle, a similar game, any consecutive chain of letters
     are allowed.  Explain (in very high-level pseudo-code) how you might solve this problem with a TrieSet or a TrieMap.  Make sure to detail
     how a similar solution that uses a HashSet/HashMap instead would be different and why using a Trie might make the solution better.<pre>
-**TODO**: Here is the step we gonna solve this problem. We will go check each character in the matrix. In each character we gonna traverse through each character
-of each direction that character go to. If that current spot is a valid word in the data structure(Hashmap or Trie) then we will return that word, otherwise, we
-will continue check other direction spot. The only different between using hashset or trie as the data structure for this project is that for hashset, we need to check 
+**TODO**: Here is the step we gonna solve this problem. We will go check each character in the matrix from the very top left corner to the very bottom right corner.
+ In each character we gonna traverse through each character of each direction that character go to. If that current spot is a valid word in the data structure word dictionary(Hashmap or Trie) then we will return that word and continue to go check all other direction spot until we reach to the end of the corner where there are no more direction to go or there is no valid direction to go. 
+ The only different between using hashset or trie as the data structure for this project is that for hashset, we need to check 
 all possible combination of each direction to make sure we do not miss any word in the matrix, on the other side, for trie, when we traverse and find out that there is no
-other branch after that character we gonna break out at that direction so we can save the time from keep looping through unnecessary direction. 
+other branch in the dictionary following right after that character spot we gonna break out at that direction so we can save the time from keep looping through unnecessary direction. 
 </pre><br>
 -   One of the classes in the main package is called Zip.  This class uses your PriorityQueue to do Huffman coding, your FIFOQueue as a buffer,
     your stack to calculate the keyset of a trie (using recursive backtracking), and your SuffixTrie to do LZ77Compression.  Find some text file
